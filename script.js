@@ -41,6 +41,7 @@ const dragMove = (e) => {
 };
 
 const endDrag = (e) => {
+  console.log(currentIndex);
   if (!isDragging) return;
   isDragging = false;
 
@@ -57,6 +58,11 @@ const endDrag = (e) => {
 carousel.addEventListener("mousedown", startDrag);
 carousel.addEventListener("mousemove", dragMove);
 carousel.addEventListener("mouseup", endDrag);
+
+//for touch screens
+carousel.addEventListener("touchstart", startDrag);
+carousel.addEventListener("touchmove", dragMove);
+carousel.addEventListener("touchend", endDrag);
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowUp") {
