@@ -17,9 +17,12 @@ const scrollDown = () => {
 };
 
 const updateCards = () => {
+  // dynamic gap for small and large screens
+  const distanceMultiplier = window.innerWidth <= 600 ? 180 : 345;
+
   cards.forEach((card, index) => {
     card.style.transform = `translateY(${
-      (index - currentIndex) * 345
+      (index - currentIndex) * distanceMultiplier
     }px) scale(${1 - (Math.abs(currentIndex - index) / 10) * 3})`; // transform the card multiplied by the distance from current card
 
     card.style.opacity = 1 - Math.abs(currentIndex - index) / 1.6;
